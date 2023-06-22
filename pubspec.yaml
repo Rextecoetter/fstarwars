@@ -78,7 +78,13 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
+  fonts:
+    - family: DGalaxy
+      fonts:
+        - asset: assets/fonts/DistantGalaxy.ttf
+    - family: DGalaxyOut
+      fonts:
+        - asset: assets/fonts/DistantGalaxyOutline.ttf
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
@@ -92,3 +98,4 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  
