@@ -5,9 +5,14 @@ class InicialPageController extends GetxController {
   final List<Map<String, dynamic>> characterListFull = Get.arguments;
   CustomDio dio = Get.find(tag: 'dio');
 
-  List<Map<String, dynamic>> getFiltered(String filter) {
-    List<Map<String, dynamic>> filteredCharacterList = [];
+  List<Map<String, dynamic>> filteredCharacterList = [];
+  int filteredCharacterListLength = 0;
 
+  int getLength() {
+    return filteredCharacterListLength;
+  }
+
+  List<Map<String, dynamic>> getFiltered(String filter) {
     if (filter.isEmpty) {
       return characterListFull;
     }
@@ -20,7 +25,7 @@ class InicialPageController extends GetxController {
     for (var pp in filteredCharacterList) {
       print(pp['name']); //isso eu fiz pra ver a lista filtrada
     }
-
+    filteredCharacterListLength = filteredCharacterList.length;
     return filteredCharacterList;
   }
 }

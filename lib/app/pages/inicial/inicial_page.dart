@@ -11,7 +11,7 @@ class InicialPage extends GetView<InicialPageController> {
     TextEditingController characterNameEC = TextEditingController();
     final formKey = GlobalKey<FormState>();
 
-    var characterList = controller.args.obs;
+    var characterList = controller.characterListFull.obs;
     var listLengh = characterList.length.obs;
 
     return Scaffold(
@@ -36,8 +36,8 @@ class InicialPage extends GetView<InicialPageController> {
               key: formKey,
               child: TextFormField(
                 onChanged: (value) {
-                  characterList = controller.getFiltered(characterNameEC.text).obs;
-                  listLengh = characterList.length.obs;
+                  characterList = controller.getFiltered(characterNameEC.text) as RxList<Map<String, dynamic>>;
+                  listLengh = controller.getLength() as RxInt;
                   listLengh.refresh();
                   characterList.refresh();
                 },
