@@ -17,6 +17,7 @@ class InicialPageController extends GetxController {
 
   CustomDio dio = Get.find(tag: 'dio');
 
+
   List<Map<String, dynamic>> getFiltered(String filter) {
     if (filter.isEmpty) {
       reset();
@@ -32,7 +33,6 @@ class InicialPageController extends GetxController {
         print(pp['name']); //isso eu fiz pra ver a lista filtrada
       }
     }
-
     return filteredCharacterList;
   }
 }

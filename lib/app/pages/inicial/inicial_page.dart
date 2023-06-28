@@ -11,6 +11,7 @@ class InicialPage extends GetView<InicialPageController> {
     TextEditingController characterNameEC = TextEditingController();
     final formKey = GlobalKey<FormState>();
 
+
     return Scaffold(
       backgroundColor: const Color(0XFFfdfcd5),
       appBar: AppBar(
@@ -34,6 +35,7 @@ class InicialPage extends GetView<InicialPageController> {
               child: TextFormField(
                 onChanged: (value) {
                   controller.filteredCharacterList = controller.getFiltered(characterNameEC.text).obs;
+
                 },
                 controller: characterNameEC,
                 decoration: const InputDecoration(
