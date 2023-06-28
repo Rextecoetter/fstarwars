@@ -11,9 +11,6 @@ class InicialPage extends GetView<InicialPageController> {
     TextEditingController characterNameEC = TextEditingController();
     final formKey = GlobalKey<FormState>();
 
-    var characterList = controller.args.obs;
-    var listLengh = characterList.length.obs;
-
     return Scaffold(
       backgroundColor: const Color(0XFFfdfcd5),
       appBar: AppBar(
@@ -36,10 +33,7 @@ class InicialPage extends GetView<InicialPageController> {
               key: formKey,
               child: TextFormField(
                 onChanged: (value) {
-                  characterList = controller.getFiltered(characterNameEC.text).obs;
-                  listLengh = characterList.length.obs;
-                  listLengh.refresh();
-                  characterList.refresh();
+                  controller.filteredCharacterList = controller.getFiltered(characterNameEC.text).obs;
                 },
                 controller: characterNameEC,
                 decoration: const InputDecoration(
@@ -72,15 +66,15 @@ class InicialPage extends GetView<InicialPageController> {
               () {
                 return ListView.separated(
                   physics: const AlwaysScrollableScrollPhysics(),
-                  itemCount: listLengh.value,
+                  itemCount: controller.filteredCharacterList.length,
                   shrinkWrap: true,
                   separatorBuilder: (context, index) => const SizedBox(
                     height: 10,
                   ),
                   itemBuilder: (context, index) {
                     return InicialPageCharacterWidget(
-                      name: characterList[index]['name'],
-                      url: characterList[index]['url'],
+                      name: controller.filteredCharacterList[index]['name'],
+                      url: controller.filteredCharacterList[index]['url'],
                     );
                   },
                 );
