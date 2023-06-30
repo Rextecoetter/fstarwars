@@ -26,9 +26,7 @@ class PlanetRepositoryImpl implements PlanetRepository {
   @override
   Future<Map<String, dynamic>> getPlanetMap(String url) async {
     try {
-      print('dio get planet');
       var result = await dio.get(url);
-      print('dio planeta recebido');
       return result.data;
     } on DioException catch (e, s) {
       log('Erro ao buscar planeta', error: e, stackTrace: s);

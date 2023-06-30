@@ -27,9 +27,7 @@ class StarshipRepositoryImpl implements StarshipRepository {
   Future<Map<String, dynamic>> getStarshipMap(String url) async {
     CustomDio dio = CustomDio();
     try {
-      print('dio get starship');
       var response = await dio.get(url);
-      print('dio starship recebido');
       return response.data;
     } on DioException catch (e, s) {
       log('Erro ao buscar nave!', error: e, stackTrace: s);

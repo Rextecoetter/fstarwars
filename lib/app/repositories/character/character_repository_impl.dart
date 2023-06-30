@@ -1,5 +1,6 @@
 import 'package:fstarwars/app/custom_dio/custom_dio.dart';
 import 'package:fstarwars/app/models/character_model.dart';
+import 'package:fstarwars/app/models/pre_character_model.dart';
 import 'package:fstarwars/app/repositories/character/character_repository.dart';
 
 class CharacterRepositoryImpl implements CharacterRepository {
@@ -8,16 +9,18 @@ class CharacterRepositoryImpl implements CharacterRepository {
   CharacterRepositoryImpl({required this.dio});
 
   @override
-  Future<CharacterModel> getCharacter() {
+  Future<CharacterModel> getCharacter(String url, CustomDio dio) async {
+    var response = await dio.get(url);
+
     // TODO: implement getCharacter
     throw UnimplementedError();
   }
 
   @override
-  Future<List<Map<String, String>>> getInicialData() async {
+  Future<List<PreCharacterModel>> getInicialData() async {
     bool notFinished = true;
     String url = '/people';
-    List<Map<String, String>> inicialData = [];
+    List<PreCharacterModel> inicialData = [];
 
     while (notFinished) {
       var response = await dio.get(url);
@@ -28,10 +31,10 @@ class CharacterRepositoryImpl implements CharacterRepository {
       }
 
       for (Map<String, dynamic> character in response.data['results']) {
-        inicialData.add({
-          'name': character['name'] ?? '',
-          'url': character['url'] ?? '',
-        });
+        inicialData.add(PreCharacterModel(
+          name: character['name'] ?? '',
+          url: character['url'] ?? '',
+        ));
       }
     }
 

@@ -32,9 +32,7 @@ class FilmsRepositoryImpl implements FilmsRepository {
 
     try {
       for (var url in urlList) {
-        print('dio get film');
         var response = await dio.get(url);
-        print('dio film recebido');
         filmList.add(response.data);
       }
 

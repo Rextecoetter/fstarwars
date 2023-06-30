@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:fstarwars/app/models/pre_character_model.dart';
+import 'package:get/get.dart';
 
 class InicialPageCharacterWidget extends StatelessWidget {
-  const InicialPageCharacterWidget({super.key, required this.name, required this.url});
+  const InicialPageCharacterWidget({super.key, required this.preCharacterModel});
 
-  final String name;
-  final String url;
+  final PreCharacterModel preCharacterModel;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        //TODO ir para pagina de detalhes do personagem
+       Get.toNamed('/character', arguments: preCharacterModel);
       },
       child: Padding(
         padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
@@ -18,7 +19,7 @@ class InicialPageCharacterWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              name,
+              preCharacterModel.name,
               style: const TextStyle(
                 fontFamily: 'DGalaxy',
                 color: Color(0XFF41A9AA),
