@@ -9,7 +9,7 @@ class Loader extends StatelessWidget {
     return Center(
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.red,
+          color: const Color(0XFFfdfcd5),
           borderRadius: BorderRadius.circular(45),
           border: Border.all(
             color: Colors.white,
@@ -20,7 +20,7 @@ class Loader extends StatelessWidget {
           padding: const EdgeInsets.all(30),
           child: LoadingAnimationWidget.stretchedDots(
             color: const Color(0XFFd5e5c7),
-            size: 30,
+            size: 60,
           ),
         ),
       ),
