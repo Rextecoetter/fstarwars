@@ -33,215 +33,17 @@ class CharacterDetailDataWidget extends StatelessWidget {
                     children: [
                       Text(
                         'Dados:',
-                        style: TextStyle(
-                            fontFamily: 'DgalaxyOut',
-                            color: Color(0XFF41A9AA),
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700),
+                        style: TextStyle(fontFamily: 'DgalaxyOut', color: Color(0XFF41A9AA), fontSize: 20, fontWeight: FontWeight.w700),
                       ),
                     ],
                   ),
-                  Row(
-                    children: [
-                      Column(
-                        children: [
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * .3,
-                            child: const AutoSizeText(
-                              'Nome completo:',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontFamily: 'Dgalaxy',
-                                color: Color(0XFF41A9AA),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          SizedBox(
-                            child: Flexible(
-                              child: AutoSizeText(
-                                characterModel.name,
-                                textAlign: TextAlign.center,
-                                maxLines: 2,
-                                style: const TextStyle(
-                                  fontFamily: 'Dgalaxy',
-                                  color: Color(0XFF41A9AA),
-                                ),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        children: [
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * .3,
-                            child: const Text(
-                              'Genero: ',
-                              style: TextStyle(
-                                fontFamily: 'Dgalaxy',
-                                color: Color(0XFF41A9AA),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Text(
-                            characterModel.gender,
-                            style: const TextStyle(
-                              fontFamily: 'Dgalaxy',
-                              color: Color(0XFF41A9AA),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Ano de aniversário: ',
-                        style: TextStyle(
-                          fontFamily: 'Dgalaxy',
-                          color: Color(0XFF41A9AA),
-                        ),
-                      ),
-                      Text(
-                        characterModel.birthYear,
-                        style: const TextStyle(
-                          fontFamily: 'Dgalaxy',
-                          color: Color(0XFF41A9AA),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Nome do planeta: ',
-                        style: TextStyle(
-                          fontFamily: 'Dgalaxy',
-                          color: Color(0XFF41A9AA),
-                        ),
-                      ),
-                      Text(
-                        characterModel.homeWorld.name,
-                        style: const TextStyle(
-                          fontFamily: 'Dgalaxy',
-                          color: Color(0XFF41A9AA),
-                        ),
-                      ),
-                    ],
-                  ),
-                  // RichText(
-                  //   text: const TextSpan(
-                  //     children: [
-                  //       TextSpan(
-                  //         text: 'Texto com estilo 1',
-                  //         style: TextStyle(
-                  //           fontSize: 16,
-                  //           fontWeight: FontWeight.bold,
-                  //           color: Colors.black,
-                  //         ),
-                  //       ),
-                  //       TextSpan(
-                  //         text:
-                  //             'Texto com estilo 2Texto com estilo 2Texto com estilo 2Texto com estilo 2Texto com estilo 2Texto com estilo 2Texto com estilo 2Texto com estilo 2Texto com estilo 2Texto com estilo 2Texto com estilo 2Texto com estilo 2Texto com estilo 2Texto com estilo 2',
-                  //         style: TextStyle(
-                  //           fontSize: 14,
-                  //           fontStyle: FontStyle.italic,
-                  //           color: Colors.blue,
-                  //         ),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.center,
-                  //   children: [
-                  //     const Text(
-                  //       'Terreno do planeta: ',
-                  //       style: TextStyle(
-                  //         fontFamily: 'Dgalaxy',
-                  //         color: Color(0XFF41A9AA),
-                  //       ),
-                  //     ),
-                  //     Flexible(
-                  //       child: Text('Terreno do planeta: {$characterModel.homeWorld.terrain}',
-                  //         maxLines: 5,
-                  //         style: const TextStyle(
-                  //           fontFamily: 'Dgalaxy',
-                  //           color: Color(0XFF41A9AA),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //   ],
-                  // ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Flexible(
-                        child: Text(
-                          'Terreno do planeta: ${characterModel.homeWorld.terrain}',
-                          maxLines: 5,
-                          style: const TextStyle(
-                            fontFamily: 'Dgalaxy',
-                            color: Color(0XFF41A9AA),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Diametro do planeta: ',
-                        style: TextStyle(
-                          fontFamily: 'Dgalaxy',
-                          color: Color(0XFF41A9AA),
-                        ),
-                      ),
-                      Text(
-                        characterModel.homeWorld.diameter,
-                        style: const TextStyle(
-                          fontFamily: 'Dgalaxy',
-                          color: Color(0XFF41A9AA),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Nome da nave: ',
-                        style: TextStyle(
-                          fontFamily: 'Dgalaxy',
-                          color: Color(0XFF41A9AA),
-                        ),
-                      ),
-                      Text(
-                        characterModel.starShip.name,
-                        style: const TextStyle(
-                          fontFamily: 'Dgalaxy',
-                          color: Color(0XFF41A9AA),
-                        ),
-                      ),
-                    ],
-                  ),
+                  DetailItem(title: 'Nome Completo:', content: characterModel.name),
+                  DetailItem(title: 'Genero:', content: characterModel.gender),
+                  DetailItem(title: 'Ano de Aniversário', content: characterModel.birthYear),
+                  DetailItem(title: 'Nome do Planeta', content: characterModel.homeWorld.name),
+                  DetailItem(title: 'Terreno do Planeta', content: characterModel.homeWorld.terrain),
+                  DetailItem(title: 'Diametro do Planeta', content: characterModel.homeWorld.diameter),
+                  DetailItem(title: 'Nome da Nave', content: characterModel.starShip.name),
                   const SizedBox(
                     height: 40,
                   ),
@@ -250,17 +52,68 @@ class CharacterDetailDataWidget extends StatelessWidget {
                     children: [
                       Text(
                         'Filmes:',
-                        style: TextStyle(
-                            fontFamily: 'DgalaxyOut',
-                            color: Color(0XFF41A9AA),
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700),
+                        style: TextStyle(fontFamily: 'DgalaxyOut', color: Color(0XFF41A9AA), fontSize: 20, fontWeight: FontWeight.w700),
                       ),
                     ],
                   ),
                 ],
               ),
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class DetailItem extends StatelessWidget {
+  const DetailItem({
+    super.key,
+    required this.title,
+    required this.content,
+  });
+
+  final String title;
+  final String content;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      child: Row(
+        children: [
+          Column(
+            children: [
+              SizedBox(
+                width: MediaQuery.of(context).size.width * .3,
+                child: AutoSizeText(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontFamily: 'Dgalaxy',
+                    color: Color(0XFF41A9AA),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(width: 10),
+          Column(
+            children: [
+              SizedBox(
+                child: Flexible(
+                  child: AutoSizeText(
+                    content,
+                    textAlign: TextAlign.center,
+                    maxLines: 2,
+                    style: const TextStyle(
+                      fontFamily: 'Dgalaxy',
+                      color: Color(0XFF41A9AA),
+                    ),
+                  ),
+                ),
+              )
+            ],
           ),
         ],
       ),
