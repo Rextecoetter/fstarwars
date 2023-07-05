@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:fstarwars/app/models/character_model.dart';
 
@@ -41,40 +42,68 @@ class CharacterDetailDataWidget extends StatelessWidget {
                     ],
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text(
-                        'Nome completo: ',
-                        style: TextStyle(
-                          fontFamily: 'Dgalaxy',
-                          color: Color(0XFF41A9AA),
-                        ),
+                      Column(
+                        children: [
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * .3,
+                            child: const AutoSizeText(
+                              'Nome completo:',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: 'Dgalaxy',
+                                color: Color(0XFF41A9AA),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                      Text(
-                        characterModel.name,
-                        style: const TextStyle(
-                          fontFamily: 'Dgalaxy',
-                          color: Color(0XFF41A9AA),
-                        ),
+                      Column(
+                        children: [
+                          SizedBox(
+                            child: Flexible(
+                              child: AutoSizeText(
+                                characterModel.name,
+                                textAlign: TextAlign.center,
+                                maxLines: 2,
+                                style: const TextStyle(
+                                  fontFamily: 'Dgalaxy',
+                                  color: Color(0XFF41A9AA),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
                       ),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text(
-                        'Genero: ',
-                        style: TextStyle(
-                          fontFamily: 'Dgalaxy',
-                          color: Color(0XFF41A9AA),
-                        ),
+                      Column(
+                        children: [
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * .3,
+                            child: const Text(
+                              'Genero: ',
+                              style: TextStyle(
+                                fontFamily: 'Dgalaxy',
+                                color: Color(0XFF41A9AA),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                      Text(
-                        characterModel.gender,
-                        style: const TextStyle(
-                          fontFamily: 'Dgalaxy',
-                          color: Color(0XFF41A9AA),
-                        ),
+                      Column(
+                        children: [
+                          Text(
+                            characterModel.gender,
+                            style: const TextStyle(
+                              fontFamily: 'Dgalaxy',
+                              color: Color(0XFF41A9AA),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -116,21 +145,61 @@ class CharacterDetailDataWidget extends StatelessWidget {
                       ),
                     ],
                   ),
+                  // RichText(
+                  //   text: const TextSpan(
+                  //     children: [
+                  //       TextSpan(
+                  //         text: 'Texto com estilo 1',
+                  //         style: TextStyle(
+                  //           fontSize: 16,
+                  //           fontWeight: FontWeight.bold,
+                  //           color: Colors.black,
+                  //         ),
+                  //       ),
+                  //       TextSpan(
+                  //         text:
+                  //             'Texto com estilo 2Texto com estilo 2Texto com estilo 2Texto com estilo 2Texto com estilo 2Texto com estilo 2Texto com estilo 2Texto com estilo 2Texto com estilo 2Texto com estilo 2Texto com estilo 2Texto com estilo 2Texto com estilo 2Texto com estilo 2',
+                  //         style: TextStyle(
+                  //           fontSize: 14,
+                  //           fontStyle: FontStyle.italic,
+                  //           color: Colors.blue,
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [
+                  //     const Text(
+                  //       'Terreno do planeta: ',
+                  //       style: TextStyle(
+                  //         fontFamily: 'Dgalaxy',
+                  //         color: Color(0XFF41A9AA),
+                  //       ),
+                  //     ),
+                  //     Flexible(
+                  //       child: Text('Terreno do planeta: {$characterModel.homeWorld.terrain}',
+                  //         maxLines: 5,
+                  //         style: const TextStyle(
+                  //           fontFamily: 'Dgalaxy',
+                  //           color: Color(0XFF41A9AA),
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text(
-                        'Terreno do planeta: ',
-                        style: TextStyle(
-                          fontFamily: 'Dgalaxy',
-                          color: Color(0XFF41A9AA),
-                        ),
-                      ),
-                      Text(
-                        characterModel.homeWorld.terrain,
-                        style: const TextStyle(
-                          fontFamily: 'Dgalaxy',
-                          color: Color(0XFF41A9AA),
+                      Flexible(
+                        child: Text(
+                          'Terreno do planeta: ${characterModel.homeWorld.terrain}',
+                          maxLines: 5,
+                          style: const TextStyle(
+                            fontFamily: 'Dgalaxy',
+                            color: Color(0XFF41A9AA),
+                          ),
                         ),
                       ),
                     ],
@@ -188,7 +257,7 @@ class CharacterDetailDataWidget extends StatelessWidget {
                             fontWeight: FontWeight.w700),
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
