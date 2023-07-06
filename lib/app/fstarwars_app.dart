@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fstarwars/app/core/bindings/application_bindings.dart';
 import 'package:fstarwars/app/pages/character_detail/character_detail_bindings.dart';
 import 'package:fstarwars/app/pages/character_detail/character_detail_page.dart';
+import 'package:fstarwars/app/pages/film_detail/film_detail_bindings.dart';
+import 'package:fstarwars/app/pages/film_detail/film_detail_page.dart';
 import 'package:fstarwars/app/pages/inicial/inicial_page.dart';
 import 'package:fstarwars/app/pages/inicial/inicial_page_bindings.dart';
 import 'package:fstarwars/app/pages/splash/splash_page_bindings.dart';
@@ -14,7 +16,7 @@ class FstarwarsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialBinding: ApplicationBindings(),
+        initialBinding: ApplicationBindings(),
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
@@ -25,7 +27,7 @@ class FstarwarsApp extends StatelessWidget {
           GetPage(name: '/', page: () => const SplashPage(), binding: SplashPageBindings()),
           GetPage(name: '/inicial', page: () => const InicialPage(), binding: InicialPageBindings()),
           GetPage(name: '/character', page: () => const CharacterDetailPage(), binding: CharacterDetailBindings()),
-          
+          GetPage(name: '/film', page: () => const FilmDetailPage(), binding: FilmDetailBindings()),
         ]);
   }
 }

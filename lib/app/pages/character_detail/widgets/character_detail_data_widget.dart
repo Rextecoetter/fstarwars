@@ -1,6 +1,8 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:fstarwars/app/models/character_model.dart';
+import 'package:get/get.dart';
+
+import '../../../core/widgets/detail_item.dart';
 
 class CharacterDetailDataWidget extends StatelessWidget {
   const CharacterDetailDataWidget({super.key, required this.characterModel});
@@ -14,13 +16,13 @@ class CharacterDetailDataWidget extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(
-            height: 50,
+            height: 20,
           ),
           Container(
             decoration: BoxDecoration(
               border: Border.all(
                 color: const Color(0XFF41A9AA),
-                width: 5,
+                width: 1,
               ),
               borderRadius: BorderRadius.circular(10),
             ),
@@ -32,18 +34,22 @@ class CharacterDetailDataWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Dados:',
-                        style: TextStyle(fontFamily: 'DgalaxyOut', color: Color(0XFF41A9AA), fontSize: 20, fontWeight: FontWeight.w700),
+                        'Dados pessoais:',
+                        style: TextStyle(
+                            fontFamily: 'DgalaxyOut',
+                            color: Color(0XFF41A9AA),
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700),
                       ),
                     ],
                   ),
                   DetailItem(title: 'Nome Completo:', content: characterModel.name),
                   DetailItem(title: 'Genero:', content: characterModel.gender),
-                  DetailItem(title: 'Ano de Aniversário', content: characterModel.birthYear),
-                  DetailItem(title: 'Nome do Planeta', content: characterModel.homeWorld.name),
-                  DetailItem(title: 'Terreno do Planeta', content: characterModel.homeWorld.terrain),
-                  DetailItem(title: 'Diametro do Planeta', content: characterModel.homeWorld.diameter),
-                  DetailItem(title: 'Nome da Nave', content: characterModel.starShip.name),
+                  DetailItem(title: 'Ano de Aniversário:', content: characterModel.birthYear),
+                  DetailItem(title: 'Nome do Planeta:', content: characterModel.homeWorld.name),
+                  DetailItem(title: 'Terreno do Planeta:', content: characterModel.homeWorld.terrain),
+                  DetailItem(title: 'Diametro do Planeta:', content: characterModel.homeWorld.diameter),
+                  DetailItem(title: 'Nome da Nave:', content: characterModel.starShip.name),
                   const SizedBox(
                     height: 40,
                   ),
@@ -52,68 +58,45 @@ class CharacterDetailDataWidget extends StatelessWidget {
                     children: [
                       Text(
                         'Filmes:',
-                        style: TextStyle(fontFamily: 'DgalaxyOut', color: Color(0XFF41A9AA), fontSize: 20, fontWeight: FontWeight.w700),
+                        style: TextStyle(
+                            fontFamily: 'DgalaxyOut',
+                            color: Color(0XFF41A9AA),
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700),
                       ),
                     ],
                   ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * .8,
+                    height: MediaQuery.of(context).size.height * .3,
+                    child: ListView.separated(
+                      separatorBuilder: (context, index) => const SizedBox(height: 20),
+                      itemCount: characterModel.films.length,
+                      itemBuilder: (context, index) {
+                        return InkWell(
+                          onTap: () =>
+                              Get.toNamed('/film', arguments: [characterModel.name, characterModel.films[index]]),
+                          child: Text(
+                            characterModel.films[index].title,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              decoration: TextDecoration.underline,
+                              decorationThickness: 10,
+                              decorationStyle: TextDecorationStyle.wavy,
+                              fontFamily: 'Dgalaxy',
+                              color: Color(0XFF41A9AA),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  )
                 ],
               ),
             ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class DetailItem extends StatelessWidget {
-  const DetailItem({
-    super.key,
-    required this.title,
-    required this.content,
-  });
-
-  final String title;
-  final String content;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5),
-      child: Row(
-        children: [
-          Column(
-            children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width * .3,
-                child: AutoSizeText(
-                  title,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontFamily: 'Dgalaxy',
-                    color: Color(0XFF41A9AA),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(width: 10),
-          Column(
-            children: [
-              SizedBox(
-                child: Flexible(
-                  child: AutoSizeText(
-                    content,
-                    textAlign: TextAlign.center,
-                    maxLines: 2,
-                    style: const TextStyle(
-                      fontFamily: 'Dgalaxy',
-                      color: Color(0XFF41A9AA),
-                    ),
-                  ),
-                ),
-              )
-            ],
           ),
         ],
       ),
